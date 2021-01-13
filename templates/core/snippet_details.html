@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    
+        <h4>{{ snippet.title }}</h4>
+        <pre><code class="language-{{ snippet.category }}">{{ snippet.code }}</code></pre>
+        <p>{{ snippet.description }}</p>
+    
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="add-snippet-section-header section-header">
+        <h3>New Snippet</h3>
+    </section>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Snippet</button>
+    </form>
+
+{% endblock %}

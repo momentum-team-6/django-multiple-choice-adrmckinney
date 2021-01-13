@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="user-page-header">
+    <p>Already have an account? Sign in here</p>
+</section>
+<main class="user-page-main">
+    <button type="button">
+        <a href="{% url 'accounts/register/' %}">Register</a>
+    </button>
+</main>
+{% endblock %}

@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    background-color: #CFCFEA;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.site-title {
+    padding: 20px;
+    margin: 20px;
+}
+
+.icon {
+    padding: 20px;
+    font-size: 200%;
+    color: black;
+}
+
+.search–user-icons {
+    display: flex;
+    margin: 20px;
+}
+
+.main-background-container {
+    background-color: #A89B9D;
+    margin: 0 25px
+}
+
+.main-snippet-list-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 20px;
+}
+
+.snippet-title {
+    line-height: 200%;
+}
+
+.snippet-title-font {
+    font-size: 22;
+    text-decoration: none;
+    
+}
+
+
+
+.snippet-extras {
+    color: #BCBCD5;
+    font-weight: bold;
+}
