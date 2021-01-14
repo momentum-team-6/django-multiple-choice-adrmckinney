@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <section class="add-snippet-section-header section-header">
-        <h3>New Snippet</h3>
-    </section>
-
-    <form action="" method="POST">
+<div class="details-title-edit-container sub-header-background">
+    <h3 class="details-title">Add Snippet</h3>
+</div>
+<div class="form-container">
+    <form id="form-styles" action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Submit Snippet</button>
     </form>
-
+</div>
 {% endblock %}

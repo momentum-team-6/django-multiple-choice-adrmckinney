@@ -2,5 +2,13 @@
 
 {% block content %}
 
+<h3 class="sub-header-background">Delete Snippet</h3>
+
+    <form action="{% url 'delete_snippet' pk=snippet.pk %}" method="POST">
+        {% csrf_token %}
+        <p>Are you sure you want to delet "{{ snippet.title }}"?</p>
+        <button type="submit">Delete Snippet</button>
+        <a href="{% url 'index' %}">Cancel</a>
+    </form>
 
 {% endblock %}

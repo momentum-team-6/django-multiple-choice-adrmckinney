@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3 class="sub-header-background">Search Results</h3>
+
+{% for snippet in snippets %}
+    {{ snippet.title }}
+{% endfor %}
+{% endblock %}

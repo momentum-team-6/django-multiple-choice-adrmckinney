@@ -1,26 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<section class="filter-buttons-container sub-header-background">
+    <button class="filter-buttons">All</button>
+    <button class="filter-buttons">HTML</button>
+    <button class="filter-buttons">CSS</button>
+    <button class="filter-buttons">JavaScript</button>
+    <button class="filter-buttons">Python</button>
+    <button class="filter-buttons">Django</button>
+</section>
+
+{{ snippets_json|json_script:"snippets" }}
+
 {% for snippet in snippets %}
 <div class="">    
-    <div class="main-background-container">
-        <div class="main-snippet-list-container">    
-            <div class="snippet-title">
-                <p><a class="snippet-title-font" href="{% url 'snippet_details' pk=snippet.pk %}">{{ snippet.title }}</a></p>
-            </div>
-            <div class="snippet-extras">
-                <p>Last Updated</p>
-                <p>{{ snippet.created_on }}</p>
-            </div>
-            <div class="snippet-extras">
-                <p>Author</p>
-                <p>{{ snippet.user }}</p>
-            </div>
-            <div class="snippet-extras">
-                    <p>Category</p>
-                    <p>{{ snippet.category }}</p>
-            </div>
-        </div>
+    <div id="main-container" class="main-background-container">
+        
     </div>
 </div>
     {% endfor %}

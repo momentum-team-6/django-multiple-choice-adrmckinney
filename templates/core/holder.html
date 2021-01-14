@@ -1,0 +1,17 @@
+<div class="main-snippet-list-container">    
+    <div class="snippet-title">
+        <a class="snippet-title-font" href="{% url 'snippet_details' pk=snippet.pk %}">{{ snippet.title }}</a>
+    </div>
+    <div class="snippet-extras">
+        <p>Last Updated</p>
+        <p>{{ snippet.created_on }}</p>
+    </div>
+    <div class="snippet-extras">
+        <p>Author</p>
+        <p>{{ snippet.user }}</p>
+    </div>
+    <div class="snippet-extras">
+            <p>Category</p>
+            <p>{{ snippet.category }}</p>
+    </div>
+</div>

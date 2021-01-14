@@ -23,7 +23,10 @@ urlpatterns = [
     path('accounts/', include('registration.backends.simple.urls')),
     path("", views.index, name="index"),
     path('core/add/', views.add_snippet, name='add_snippet'),
-    path('core/details/<int:pk>/', views.snippet_details, name='snippet_details',)
+    path('core/details/<int:pk>/', views.snippet_details, name='snippet_details',),
+    path('core/edit/<int:pk>/', views.edit_snippet, name='edit_snippet'),
+    path('core/delet/<int:pk>/', views.delete_snippet, name='delete_snippet'),
+    path('core/search/', views.search_results, name='search_results'),
 ]
 
 if settings.DEBUG:

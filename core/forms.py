@@ -10,3 +10,6 @@ class AddSnippet(forms.ModelForm):
             'description',
             'category',
         ]
+
+class SearchForm(forms.Form):
+    search_term = forms.CharField(label='search', max_length=50)

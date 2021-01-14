@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="details-title-edit-container sub-header-background">
+    <h3 class="details-title">Edit Snippet</h3>
+</div>
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Snippet</button>
+    </form>
+    <button type="button">
+        <a href="{% url 'index' %}">Cancel</a>
+    </button>
+</div>
+
+{% endblock %}

@@ -2,9 +2,21 @@
 
 {% block content %}
 
-    
-        <h4>{{ snippet.title }}</h4>
-        <pre><code class="language-{{ snippet.category }}">{{ snippet.code }}</code></pre>
-        <p>{{ snippet.description }}</p>
+    <div class="details-title-edit-container sub-header-background">
+        <h3 class="details-title">{{ snippet.title }}</h3>
+        {% if request.user == snippet.user %}
+        <div>   
+            <a href="{% url 'edit_snippet' pk=snippet.pk %}"><i class="fas fa-edit edit-icon"></i></a>
+            <a href="{% url 'delete_snippet' pk=snippet.pk %}"><i class="fas fa-trash-alt edit-icon"></i></a>
+        </div> 
+        {% endif %}
+    </div>
+    <div class="details-container">
+        <div class="highlight-container">
+            <pre><button class="btn" data-clipboard-target="#code"><i class="far fa-clipboard"></i></button><code id="code" class="language-{{ snippet.category }}">{{ snippet.code }}</code></pre>
+            
+        </div>
+        <div class="description">{{ snippet.description }}</div>
+    </div>
     
 {% endblock %}
