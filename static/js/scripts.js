@@ -3,11 +3,12 @@ new ClipboardJS('.btn')
 const searchIcon = document.getElementById('search-icon')
 const searchBar = document.getElementById('search-bar')
 const searchButton = document.getElementById('search-button')
-const snippets = JSON.parse(document.getElementById('snippets').textContent)
-
+let snippets = JSON.parse(document.getElementById('snippets').textContent)
+// console.log(snippets)
+// const searchReulstSnippets = 
 
 searchIcon.addEventListener('click', event => {
-    console.log('button has been clicked')
+    // console.log('search icon clicked')
     searchBar.style.display = 'flex'
 })
 
@@ -19,14 +20,15 @@ searchButton.addEventListener('click', event => {
 // markup for index.html main container for all snippets list
 const mainContainer = document.getElementById('main-container')
 
-function displaySnippets(selectedCategory) {
+function displaySnippets(selectedCategory, dataSnippets) {
+    console.log('data snippets: ', dataSnippets)
     const existingSnippets = document.querySelectorAll('.main-snippet-list-container')
     
     for (let snippet of existingSnippets) {
         snippet.remove()
     }
 
-    for (let snippet of snippets) {
+    for (let snippet of dataSnippets) {
         // console.log(snippet.category)
         
         if (snippet.category !== selectedCategory && selectedCategory !== 'All') {
@@ -103,8 +105,9 @@ for (let filter of filters) {
         let selectedCategory = event.target.innerText
         // console.log("button clicked", selectedCategory)
 
-        displaySnippets(selectedCategory)
+        displaySnippets(selectedCategory, snippets)
     })
 }
 
-displaySnippets('All')
+
+displaySnippets('All', snippets)

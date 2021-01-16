@@ -1,5 +1,6 @@
 import json
 from django.core import serializers
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Snippet, Category, User
@@ -66,13 +67,25 @@ def delete_snippet(request, pk):
     return render(request, 'core/delete_snippet.html', {'snippet': snippet})
 
 def search_results(request):
-    if request.method == 'GET':
-        form = SearchForm(request.GET)
-        if form.is_valid():
-            search_term = form.cleaned_data['search_term']
-            search_results = Snippet.objects.filter(title_icontains=search_term)
-            snippets_json = serializers.serialize('json', search_results)
-            return render(request, 'core/search_results.html', {'snippets': search_results, 'snippets_json': snippets_json})
-    return redirect(to='index')
+    snippets_json = {}
+    if request.method == 'POST':
+        search_term = json.load(request)['search_term']
+        snippets = Snippet.objects.filter(title__icontains=search_term)
+        languages = Category.objects.all()
+        snippets_json = [snippet for snippet in snippets.values()]
+        for snippet in snippets_json:
+            user_id = snippet.get('user_id')
+            user = get_object_or_404(User, pk=user_id)
+            user_name = user.username
+            snippet['username'] = user_name
+            category_id = snippet.get('category_id')
+            category = get_object_or_404(Category, pk=category_id)
+            category_name = category.language
+            snippet['category'] = category_name
+        print(type(snippets_json[0]))
+    return JsonResponse(snippets_json, safe=False)
 
+
+
+        
 

@@ -15,6 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
     <script src="{% static 'js/prism.js' %}" defer></script>
     <script src="{% static 'js/date_stamp.js' %}" defer></script>
+    <script src="{% static 'js/json_search.js' %}" defer></script>
     <script src="{% static 'js/scripts.js' %}" defer></script>
     <title>Snippets</title>
 </head>
@@ -34,10 +35,10 @@
                 <i class="fas fa-search icon" id="search-icon"></i>
             </div>
             <div id="search-bar">
-                <form action="{% url 'search_results' %}" method="GET">
+                <form id="search-form" action="{% url 'search_results' %}" method="GET">
                     {% csrf_token %}
                     {{ form }}
-                    <input type="search" type="search" class="search-input animate__animated animate__fadeInRight" placeholder="Search...">
+                    <input type="search" type="search" class="search-input animate__animated animate__fadeInRight" id="search-input" placeholder="Search...">
                     <button id="search-button" type="submit" class="screen-reader-text animate__animated animate__fadeInRight">Search</button>
                 </form>
             </div>
