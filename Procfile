@@ -1,1 +1,1 @@
-web: gunicorn snippet-manager.wsgi
+web: gunicorn snippet_manager.wsgi
