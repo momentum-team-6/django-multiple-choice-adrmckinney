@@ -20,7 +20,7 @@ def index(request):
         category = get_object_or_404(Category, pk=category_id)
         category_name = category.language
         snippet['category'] = category_name
-    print(type(snippets_json[0]))
+    # print(type(snippets_json[0]))
     return render(request, 'core/index.html', {'snippets': snippets, 'languages': languages, 'snippets_json': snippets_json})
 
 
