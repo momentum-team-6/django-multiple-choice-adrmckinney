@@ -1,5 +1,6 @@
 function dateStamp() {
     let newDate = new Date()
+    // console.log('date', date)
     let year = newDate.getFullYear()
     let month = monthNumberToString(newDate.getMonth())
     let day = newDate.getDate()
