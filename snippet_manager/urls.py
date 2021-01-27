@@ -19,6 +19,7 @@ from django.urls import include, path
 from core import views
 
 urlpatterns = [
+    path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
     path("", views.index, name="index"),

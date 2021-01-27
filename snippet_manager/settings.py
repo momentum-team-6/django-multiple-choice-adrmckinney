@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 from pathlib import Path
 
+import django_on_heroku
 import environ
 
 env = environ.Env(
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     # Third-party
     'debug_toolbar',
     'django_extensions',
+    'rest_framework',
 
     # Project-specific
     'core',
@@ -146,7 +148,15 @@ REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = "/"
 # ACCOUNT_AUTHENTICATED_REGISTRATION_REDIRECTS = True
 
+# REST Framework settings
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ]
+}
+
 # Configure Django App for Heroku.
-import django_on_heroku
 django_on_heroku.settings(locals())
 del DATABASES['default']['OPTIONS']['sslmode']
+
